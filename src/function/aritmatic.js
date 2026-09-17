@@ -1,55 +1,66 @@
-const pertambahan = (a, b, option) => {
+import { isNumber } from "../../utils/type.checker.js";
+import { BaseResponse } from "../utils/template.response.js";
+
+export const pertambahan = (a, b, option) => {
+    if (!isNumber(a) || !isNumber(b)) {
+        return BaseResponse.FailedResponse("input harus berupa angka");
+    }
     const result = a + b;
-    return {
-        result: result,
-        explain: `karena anda telah menginput data ${a} dan ${b} dengan operasi aritmakia penjumlahan (+) maka akan menghasilkan angka ${result} `
-    }
+    return BaseResponse.SuccessResponse();
 }
 
-const pengurangan = (a, b, option) => {
+export const pengurangan = (a, b, option) => {
+    if (!isNumber(a) || !isNumber(b)) {
+        return BaseResponse.FailedResponse("input harus berupa angka");
+    }
     const result = a - b;
-    return {
-        result: a - b,
-        explain: `karena anda telah menginput data ${a} dan ${b} dengan operasi aritmakia pengurangan (-) maka akan menghasilkan angka ${result} `
-    }
+    return BaseResponse.SuccessResponse();
 }
 
-const perkalian = (a, b, option) => {
-    const result = a * b;
-    return {
-        result: result,
-        explain: `karena anda telah menginput data ${a} dan ${b} dengan operasi aritmakia perkalian (*) maka akan menghasilkan angka ${result} `
+export const perkalian = (a, b, option) => {
+    if (!isNumber(a) || !isNumber(b)) {
+        return BaseResponse.FailedResponse("input harus berupa angka");
     }
+    const result = a * b;
+    return BaseResponse.SuccessResponse();
 } 
 
-const pembagian = (a, b, option) => {
+export const pembagian = (a, b, option) => {
+    if (!isNumber(a) || !isNumber(b)) {
+        return BaseResponse.FailedResponse("input harus berupa angka");
+    }
+    if (b === 0) {
+        return BaseResponse.FailedResponse("pembagi tidak boleh nol");
+    }
     const result = a / b;
-    return {
-        result: result,
-        explain: `karena anda telah menginput data ${a} dan ${b} dengan operasi aritmakia pembagian (/) maka akan menghasilkan angka ${result} `
-    }
+    return BaseResponse.SuccessResponse();
 }
 
-const modulo = (a, b, option) => {
+export const modulo = (a, b, option) => {
+    if (!isNumber(a) || !isNumber(b)) {
+        return BaseResponse.FailedResponse("input harus berupa angka");
+    }
+    if (b === 0) {
+        return BaseResponse.FailedResponse("pembagi tidak boleh nol");
+    }
     const result = a % b;
-    return {
-        result: result,
-        explain: `karena anda telah menginput data ${a} dan ${b} dengan operasi aritmakia modulo (%) maka akan menghasilkan angka ${result} `
-    }
+    return BaseResponse.SuccessResponse();
 }
 
-const pangkat = (a, b, option) => {
+export const pangkat = (a, b, option) => {
+    if (!isNumber(a) || !isNumber(b)) {
+        return BaseResponse.FailedResponse("input harus berupa angka");
+    }
     const result = a ** b;
-    return {
-        result: result,
-        explain: `karena anda telah menginput data ${a} dan ${b} dengan operasi aritmakia pangkat (**) maka akan menghasilkan angka ${result} `
-    }
+    return BaseResponse.SuccessResponse();
+
 }
 
-const akar = (a, option) => {
-    const result = Math.sqrt(a);
-    return {
-        result: result,
-        explain: `karena anda telah menginput data ${a} dengan operasi aritmakia akar (√) maka akan menghasilkan angka ${result} `
+export const akar = (a, option) => {
+    if (!isNumber(a)) {
+        return BaseResponse.FailedResponse("input harus berupa angka");
     }
+    const result = Math.sqrt(a);
+    return BaseResponse.SuccessResponse();
+
 }   
