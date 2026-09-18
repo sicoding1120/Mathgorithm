@@ -6,7 +6,7 @@ export const pertambahan = (a, b, option) => {
         return BaseResponse.FailedResponse("input harus berupa angka");
     }
     const result = a + b;
-    return BaseResponse.SuccessResponse();
+    return BaseResponse.SuccessResponse(result, a,b, "Pertambahan" , "+");
 }
 
 export const pengurangan = (a, b, option) => {
@@ -14,7 +14,7 @@ export const pengurangan = (a, b, option) => {
         return BaseResponse.FailedResponse("input harus berupa angka");
     }
     const result = a - b;
-    return BaseResponse.SuccessResponse();
+    return BaseResponse.SuccessResponse(result, a,b, "Pengurangan" , "-");
 }
 
 export const perkalian = (a, b, option) => {
@@ -22,7 +22,7 @@ export const perkalian = (a, b, option) => {
         return BaseResponse.FailedResponse("input harus berupa angka");
     }
     const result = a * b;
-    return BaseResponse.SuccessResponse();
+    return BaseResponse.SuccessResponse(result, a,b, "Perkalian" , "*");
 } 
 
 export const pembagian = (a, b, option) => {
@@ -33,7 +33,7 @@ export const pembagian = (a, b, option) => {
         return BaseResponse.FailedResponse("pembagi tidak boleh nol");
     }
     const result = a / b;
-    return BaseResponse.SuccessResponse();
+    return BaseResponse.SuccessResponse(result, a,b, "Pembagian" , "/");
 }
 
 export const modulo = (a, b, option) => {
@@ -44,7 +44,7 @@ export const modulo = (a, b, option) => {
         return BaseResponse.FailedResponse("pembagi tidak boleh nol");
     }
     const result = a % b;
-    return BaseResponse.SuccessResponse();
+    return BaseResponse.SuccessResponse(result, a,b, "Modulo" , "%");
 }
 
 export const pangkat = (a, b, option) => {
@@ -52,7 +52,7 @@ export const pangkat = (a, b, option) => {
         return BaseResponse.FailedResponse("input harus berupa angka");
     }
     const result = a ** b;
-    return BaseResponse.SuccessResponse();
+    return BaseResponse.SuccessResponse(result, a,b, "Pangkat" , "**");
 
 }
 
@@ -61,6 +61,6 @@ export const akar = (a, option) => {
         return BaseResponse.FailedResponse("input harus berupa angka");
     }
     const result = Math.sqrt(a);
-    return BaseResponse.SuccessResponse();
+    return BaseResponse.SuccessResponse(result, a, null, "Akar" , "√");
 
 }   

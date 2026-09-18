@@ -1,8 +1,8 @@
 export const BaseResponse = () => {
-    const SuccessResponse = (result, a, b, operation, operationSymbol) => {
+    const SuccessResponse = (result, a,b, operation, operationSymbol) => {
         return {
             result: result,
-            explain: `karena anda telah menginput data ${a} dan ${b} dengan operasi aritmakia ${operation} (${operationSymbol}) maka akan menghasilkan angka ${result} `
+            explain: `karena anda telah menginput data ${a} ${b!=null ? `dan ${b}` : ''} dengan operasi aritmakia ${operation} (${operationSymbol}) maka akan menghasilkan angka ${result} `
         }
     }
 
