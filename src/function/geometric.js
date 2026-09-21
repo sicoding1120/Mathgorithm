@@ -60,7 +60,7 @@ export const lingkaran = (r, PI) => {
         default:
             return "Program yang dimasukan salah";
     }
-    const luas = Math.PI * r * r;
+    const luas = Math.PI * (r**2);
     const keliling = 2 * Math.PI * r;
     return { luas, keliling };
 }
